@@ -45,7 +45,6 @@ class BookController extends Controller
             'author' => $request->input('author')
         ];
         $book->updateBook($id,$data);
-
         return redirect()->route('app_homepage')
                          ->with('success', 'Book updated successfully!');
     }

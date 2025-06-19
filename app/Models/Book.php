@@ -16,7 +16,6 @@ class Book extends Model
           return $this->id;
     }
 
-
     // insert a new book into the database
     public function insertBook($data)
     {
@@ -40,6 +39,8 @@ class Book extends Model
             ->where('id', $id)
             ->first();
     }
+
+    // update a book by ID
     public function updateBook($id, $data)
     {
         return DB::table('books')
@@ -51,6 +52,7 @@ class Book extends Model
             ]);
     }
 
+    // delete a book by ID
     public function deleteBook(int $id)
     {
         return DB::table('books')

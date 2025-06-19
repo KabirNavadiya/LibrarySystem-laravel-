@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DefaultController;
 
 Route::get('/', [DefaultController::class,'index'])->name('app_homepage');
+Route::post('/save-token', [DefaultController::class, 'saveToken'])->name('save_token');
 Route::get('/managebooks', [DefaultController::class,'manageBooks'])->name('app_manage_books');
 Route::get('/books/add', [BookController::class,'addBookForm'] )->name('app_add_book');
 Route::post('/add',[BookController::class,'addBook'])->name('app_add_book_post');
