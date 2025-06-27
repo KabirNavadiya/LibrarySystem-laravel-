@@ -20,11 +20,8 @@ class BookController extends Controller
     public function addBook(AddBookRequest $request, Book $book){
 
         // Insert Data into Book Model
-        $data = [
-            'title' => $request->input('title'),
-            'author' => $request->input('author')
-            ];
 
+        $data = $request->validated();
         $book = new Book();
         $book->insertBook($data);
         return redirect()->route('app_add_book')->with('success', 'Book added successfully!');
@@ -40,10 +37,8 @@ class BookController extends Controller
     }
 
     public function editBook(EditBookRequest $request, Book $book, int $id){
-        $data = [
-            'title' => $request->input('title'),
-            'author' => $request->input('author')
-        ];
+
+        $data = $request->validated();
         $book->updateBook($id,$data);
         return redirect()->route('app_homepage')
                          ->with('success', 'Book updated successfully!');
